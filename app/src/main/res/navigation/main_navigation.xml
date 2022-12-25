@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/startScreen">
+
+
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="uz.salikhdev.seyg.ui.auth.login.LoginScreen"
+        android:label="screen_login"
+        tools:layout="@layout/screen_login" >
+        <action
+            android:id="@+id/action_loginScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+        <action
+            android:id="@+id/action_loginScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerScreen"
+        android:name="uz.salikhdev.seyg.ui.auth.register.RegisterScreen"
+        android:label="screen_register"
+        tools:layout="@layout/screen_register" >
+        <action
+            android:id="@+id/action_registerScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/startScreen"
+        android:name="uz.salikhdev.seyg.ui.main.start.StartScreen"
+        android:label="screen_start"
+        tools:layout="@layout/screen_start" >
+        <action
+            android:id="@+id/action_startScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+        <action
+            android:id="@+id/action_startScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="uz.salikhdev.seyg.ui.main.home.HomeScreen"
+        android:label="screen_home"
+        tools:layout="@layout/screen_home" >
+        <action
+            android:id="@+id/action_homeScreen_to_chatScreen"
+            app:destination="@id/chatContactScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_voiceScreen"
+            app:destination="@id/voiceContactScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatContactScreen"
+        android:name="uz.salikhdev.seyg.ui.main.contact.text.ChatContactScreen"
+        android:label="screen_chat"
+        tools:layout="@layout/screen_contact_chat" >
+        <action
+            android:id="@+id/action_chatContactScreen_to_chatScreen"
+            app:destination="@id/chatScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/voiceContactScreen"
+        android:name="uz.salikhdev.seyg.ui.main.contact.voice.VoiceContactScreen"
+        android:label="screen_voice"
+        tools:layout="@layout/screen_contact_voice" >
+        <action
+            android:id="@+id/action_voiceContactScreen_to_voiceScreen"
+            app:destination="@id/voiceScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/voiceScreen"
+        android:name="uz.salikhdev.seyg.ui.main.chat.voice.VoiceScreen"
+        android:label="screen_voice"
+        tools:layout="@layout/screen_voice" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatScreen"
+        android:name="uz.salikhdev.seyg.ui.main.chat.text.ChatScreen"
+        android:label="screen_chat"
+        tools:layout="@layout/screen_chat" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
